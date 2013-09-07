@@ -1,4 +1,7 @@
 Task1Website::Application.routes.draw do
+  resources :favorites
+
+
   devise_for :users
 
   get "static_pages/home"

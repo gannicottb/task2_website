@@ -1,0 +1,58 @@
+@import "bootstrap";
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1{
+    margin-bottom: 10px
+  }
+}
+
+
+
+/* footer */
+$lightGray: #999;
+$gray: #555;
+$darkGray: #222;
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: $lightGray;
+  a {
+    color: $gray;
+    &:hover {
+      color: $darkGray;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
+
