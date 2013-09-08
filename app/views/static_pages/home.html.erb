@@ -1,6 +1,50 @@
-<div class="center hero-unit">
-    <h1>Task2 Website</h1>
-    <h2>Future home of Drinks on Hand.</h2>
-    <%= link_to 'Sign Up Today!', '#', class: 'btn btn-large btn-primary'%>
+<div class ="row">
+  <div class = "span4 offset4">
+    <%= form_tag(add_ingredient_path, method: "get") do %>
+        <%= label_tag(:q, "Add an ingredient...") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Add") %>
+    <% end %>
+
+    <ul>
+      <% if !session[:ingredients].nil? %>
+          <% session[:ingredients].each do |i| %>
+              <li><%= i %></li>
+          <% end %>
+      <%end%>
+    </ul>
+  </div>
+
+    <div class="row">
+      <div class = "span4 offset4">
+         <%= render '/static_pages/display_results'%>
+      </div>
+      <div class ="span4">
+        <form class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label" for="inputEmail">Email</label>
+            <div class="controls">
+              <input type="text" id="inputEmail" placeholder="Email">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputPassword">Password</label>
+            <div class="controls">
+              <input type="password" id="inputPassword" placeholder="Password">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox"> Remember me
+              </label>
+              <button type="submit" class="btn">Sign in</button>
+              <%= link_to 'Sign Up Today!', new_user_registration_path, class: 'btn btn-large btn-primary'%>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
 </div>
 <%= link_to image_tag('rails.png', alt: 'Rails'), 'http://rubyonrails.org' %>

@@ -1,12 +1,7 @@
 Task1Website::Application.routes.draw do
-  get "users/index"
-
-  get "users/new"
-
-  get "users/show"
+  devise_for :users
 
   resources :favorites
-  devise_for :users
 
   root :to => 'static_pages#home'
 
@@ -14,8 +9,8 @@ Task1Website::Application.routes.draw do
   match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'
   match '/account', to: 'static_pages#account'
-  match '/favorites', to: "static_pages#favorites"
-  match '/signin', to: "static_pages#signin"
+  match '/favorites', to: 'static_pages#favorites'
+  match '/add_ingredient', to: 'static_pages#add_ingredient'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

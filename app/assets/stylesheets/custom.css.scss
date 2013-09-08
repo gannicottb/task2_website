@@ -24,8 +24,25 @@ textarea {
     margin-bottom: 10px
   }
 }
+/* header */
 
+header {
+  #logo {
+    float: left;
+    font-size: 1.8em;
+    margin-right: 10px;
+    padding-top: 10px;
+    font-weight: bold;
+    padding-left: 10px;
+    color: #000000;
+  }
+}
 
+/* home */
+#ingredient_search{
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* footer */
 $lightGray: #999;
@@ -53,6 +70,10 @@ footer {
       float: left;
       margin-left: 10px;
     }
+  }
+  nav {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

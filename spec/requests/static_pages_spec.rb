@@ -11,6 +11,7 @@ describe "StaticPages" do
     it {should have_selector('title', text: 'task2_website')}
     it {should_not have_selector('title', text: ' | Home')}
 
+
   end
 
   describe "Help page" do
