@@ -1,18 +1,25 @@
 Task1Website::Application.routes.draw do
+  get "users/index"
+
+  get "users/new"
+
+  get "users/show"
+
   resources :favorites
-
-
   devise_for :users
 
-  get "static_pages/home"
+  root :to => 'static_pages#home'
 
-  get "static_pages/help"
-
-  get "static_pages/about"
+  #As used in Michael Hartl's Ruby on Rails Tutorial -->
+  match '/help', to: 'static_pages#help'
+  match '/about', to: 'static_pages#about'
+  match '/account', to: 'static_pages#account'
+  match '/favorites', to: "static_pages#favorites"
+  match '/signin', to: "static_pages#signin"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  root :to => "home#index"
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

@@ -67,5 +67,7 @@ module Task1Website
 
     #For Heroku
     config.assets.initialize_on_precompile = false
+    #For Privacy. Don't log the password
+    config.filter_parameters += [:password, :password_confirmation]
   end
 end

@@ -1,48 +1,39 @@
 require 'spec_helper'
 
+#As used in Michael Hartl's Ruby on Rails Tutorial -->
 describe "StaticPages" do
+  subject {page}
 
   describe "Home page" do
-    it "should have the content 'Task2 Website'" do
-      visit '/static_pages/home'
-      page.should have_selector('h1', :text => 'Task2 Website')
-    end
+    before{ visit root_path}
 
-    it "should have the base title"  do
-      visit '/static_pages/home'
-      page.should have_selector('title',
-                                :text => 'task2_website')
-    end
+    it {should have_selector('h1', text: 'Task2 Website')}
+    it {should have_selector('title', text: 'task2_website')}
+    it {should_not have_selector('title', text: ' | Home')}
 
-    it "should not have a custom title" do
-      visit '/static_pages/home'
-      page.should_not have_selector('title',
-                      :text => ' | Home')
-    end
   end
 
   describe "Help page" do
-    it "should have the content 'Help'" do
-      visit '/static_pages/help'
-      page.should have_selector('h1', :text => 'Help')
-    end
-    it "should have the title 'Help'"  do
-      visit '/static_pages/help'
-      page.should have_selector('title',
-                                :text => 'task2_website | Help')
-    end
+    before{ visit help_path}
+
+    it {should have_selector('h1', text: 'Help')}
+    it {should have_selector('title', text: 'task2_website | Help')}
+
   end
 
   describe "About page" do
-    it "should have the content 'About'" do
-      visit '/static_pages/about'
-      page.should have_selector('h1', :text => 'About')
-    end
-    it "should have the title 'About'"  do
-      visit '/static_pages/about'
-      page.should have_selector('title',
-                                :text => 'task2_website | About')
-    end
+    before{visit about_path}
+
+    it {should have_selector('h1', text: 'About')   }
+    it {should have_selector('title', text: 'task2_website | About')}
+
+  end
+
+  describe "Account page" do
+    before {visit account_path}
+    it {should have_selector('h1', text: 'Account')}
+    it {should have_selector('title', text: "task2_website | Account")}
+
   end
 
 
