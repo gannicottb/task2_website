@@ -14,11 +14,12 @@ class StaticPagesController < ApplicationController
   end
 
   def add_ingredient
-    #@ingredients = Array.new if @ingredients.nil?
-    #@ingredients << params[:q]
+    #Add the new ingredient to the session array, creating it if nonexistent.
     session[:ingredients] = Array.new if session[:ingredients].nil?
     session[:ingredients] << params[:q]
+    #Then redirect_to root_path.
     redirect_to root_path
+    #I would prefer that this be done with AJAX.
   end
 
   def display_results

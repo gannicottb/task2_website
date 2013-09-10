@@ -1,3 +1,5 @@
 # Drinks on Hand
 
-Brandon Gannicot, for Software Engineering (96-821)
+Brandon Gannicott, for Software Engineering (96-821)
+
+Currently in a very rough version. The results displayed beneath the list of ingredients is hard-coded for now.

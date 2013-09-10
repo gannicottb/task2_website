@@ -2,8 +2,9 @@
   <!--Collect Ingredients -->
   <div class = "span4 offset4">
     <%= form_tag(add_ingredient_path, method: "get") do %>
-        <%= label_tag(:q, "Add an ingredient...") %>
+        <%= label_tag(:q, "addIngredient") %>
         <%= text_field_tag(:q) %>
+        <%= text_field_tag(placeholder: "Add an ingredient!") %>
         <%= submit_tag("Add") %>
     <% end %>
     <!--Display Ingredients-->
@@ -18,46 +19,17 @@
     <!-- Print out the results-->
     <div class="row">
       <div class = "span4 offset4">
+         <!-- Currently, I'm just rendering hardcoded results. But I could return a googleajax call -->
          <%= render '/static_pages/display_results'%>
       </div>
       <!--Display a Login box-->
       <% if !user_signed_in? %>
-      <div class ="span4" id="login">
-        <form class="form-horizontal">
-          <div class="control-group">
-            <label class="control-label" for="inputEmail">Email</label>
-            <div class="controls">
-              <input type="text" id="inputEmail" placeholder="Email">
-            </div>
-          </div>
-          <div class="control-group">
-            <label class="control-label" for="inputPassword">Password</label>
-            <div class="controls">
-              <input type="password" id="inputPassword" placeholder="Password">
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="controls">
-              <label class="checkbox">
-                <input type="checkbox"> Remember me
-              </label>
-              <button type="submit" class="btn">Sign in</button>
-              <%= link_to 'Sign Up Today!', new_user_registration_path, class: 'btn btn-large btn-primary'%>
-            </div>
-          </div>
-        </form>
-      </div>
+       <%= render '/static_pages/login_box'%>
       <% else%>
         <!-- Display the user's Favorite recipes-->
         <div class ="span4" id="favorites">
-
-          <ul>
-            <i>Your Favorites</i>
-                <%= current_user.favorites.each do |f|%>
-                    <li><%= "#{f.title} | #{f.link}" %></li>
-                <%end%>
-            <% end %>
-          </ul>
+         <%= current_user.favorites.show %>
+      <% end %>
         </div>
     </div>
 </div>
