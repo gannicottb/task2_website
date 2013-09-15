@@ -1,0 +1,13 @@
+TODO: Convert Favorite to AJAX
+TODO: GoogleAJAX results should be saved in the session
+TODO: disallow duplication of ingredients
+TODO: delete ingredient button (or a little icon would work too)
+TODO: Reset session on a timer
+TODO: Find out some way to destroy the session after a period of time
+TODO: Store
+
+#TODO: Install GoogleAJAX
+#TODO: Convert addIngredient to AJAX
+#TODO: clear whole ingredient list
+#TODO: Replace manual display of Favorites with favorites#show
+#TODO: Figure out a clean way to only generate Google results when the ingredient list changes

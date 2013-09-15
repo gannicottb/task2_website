@@ -3,14 +3,17 @@ Task1Website::Application.routes.draw do
 
   resources :favorites
 
-  root :to => 'static_pages#home'
+  root :to => 'static_pages#home', via: 'get'
 
   #As used in Michael Hartl's Ruby on Rails Tutorial -->
   match '/help', to: 'static_pages#help'
-  match '/about', to: 'static_pages#about'
+  match '/about', to: 'static_pages#about', via: 'get'
   match '/account', to: 'static_pages#account'
   match '/favorites', to: 'static_pages#favorites'
-  match '/add_ingredient', to: 'static_pages#add_ingredient'
+  # match '/add_ingredient', to: 'static_pages#add_ingredient'
+  match '/clear_ingredients', to: 'static_pages#clear_ingredients'
+  match '/display_results', to: 'static_pages#display_results'
+  match '/update_lists', to: 'static_pages#update_lists'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

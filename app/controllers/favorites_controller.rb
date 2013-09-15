@@ -1,24 +1,19 @@
 class FavoritesController < ApplicationController
   # GET /favorites
   # GET /favorites.json
+  before_filter :authenticate_user!
+  respond_to :html, :xml
+
   def index
     @favorites = Favorite.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @favorites }
-    end
+    respond_with(@favorites)
   end
 
   # GET /favorites/1
   # GET /favorites/1.json
   def show
     @favorite = Favorite.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @favorite }
-    end
+    respond_with(@favorite)
   end
 
   # GET /favorites/new
@@ -26,10 +21,7 @@ class FavoritesController < ApplicationController
   def new
     @favorite = Favorite.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @favorite }
-    end
+    respond_with(@favorite)
   end
 
   # GET /favorites/1/edit
@@ -44,7 +36,8 @@ class FavoritesController < ApplicationController
     if @favorite.save
       flash[:notice] = "Favorite saved!"
     end
-    redirect_to root_path
+   # redirect_to root_path
+    respond_with(@favorite)
   end
 
   # PUT /favorites/1

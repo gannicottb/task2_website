@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 #As used in Michael Hartl's Ruby on Rails Tutorial -->
 describe "StaticPages" do
   subject {page}
@@ -24,7 +25,7 @@ describe "StaticPages" do
     before{visit about_path}
 
     it {should have_selector('h1', text: 'About')   }
-    it {should have_selector('title', text: 'task2_website | About')}
+    it {should have_selector('title', text: "task2_website | About")}
 
   end
 
@@ -35,25 +36,6 @@ describe "StaticPages" do
 
   end
 
-  describe "Favorite button shouldn't do anything if you're not logged in" do
-    #let(:user) {FactoryGirl.create(:user)}
-    #before {visit root_path(user)}
-   #before{visit root_path}
-    #expect { click_button "Favorite" }.not_to change(Favorite, :count)
-
-  end
-
-  describe "puts the new ingredient in the pool when you click add" do
-    before do
-      visit root_path
-      fill_in "addIngredient", with: "whiskey"
-      click_on "Add"
-    end
-
-      #verify that the pool of ingredients has the thing that was just added
-      it {should have_selector("li", text: "whiskey")}
-
-  end
 
 
 

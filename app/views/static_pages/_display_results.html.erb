@@ -1,14 +1,11 @@
-<div class="well">
   <ul>
-    <li>
-      <a href="http://cocktails.about.com/od/w/r/whsky_sr_cktl.htm">Whiskey Sour</a>
-      <%= link_to "Favorite", favorites_path(:favorite => {:title => "Whiskey Sour", :link => "http://cocktails.about.com/od/w/r/whsky_sr_cktl.htm" }), :class => "btn btn-success", :method => "post"%>
-    </li>
-    <li>
-      <a href="http://www.drinksmixer.com/drink2340.html">Tequila Sunrise</a>
-      <%= link_to "Favorite", favorites_path(:favorite => {:title => "Tequila Sunrise", :link => "http://www.drinksmixer.com/drink2340.html" }), :class => "btn btn-success", :method => "post"%>
-    </li>
-
+    <% if !@results.nil? %>
+        <% @results.each do |r| %>
+            <li>
+              <a href=<%= r[:url] %>><%= r[:title_no_formatting] %></a>
+              <%= link_to "Favorite", favorites_path(:favorite => {:title => r[:title_no_formatting], :link => r[:url]}), :class => "btn btn-success", :method => "post"%>
+            </li>
+        <% end %>
+    <% end %>
   </ul>
-</div>
 

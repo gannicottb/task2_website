@@ -10,10 +10,11 @@ gem 'googleajax', '1.0.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development, :test do
   gem 'sqlite3'
-  gem 'rspec-rails', '2.11.0'
+  gem 'rspec-rails', '2.12.0'
+  gem 'ruby-debug-ide', :require => nil
 end
 group :test do
-  gem 'capybara', '1.1.2'
+  gem 'capybara'
   gem 'factory_girl_rails', '4.1.0'
 end
 group :production do

@@ -1,0 +1,6 @@
+<% if !session[:ingredients].nil? %>
+<b><%=session[:ingredients].count%></b>
+    <% session[:ingredients].each do |i, index| %>
+        <li id="<%=index%>"><%= i %></li>
+    <% end %>
+<% end %>
